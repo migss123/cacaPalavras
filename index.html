@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CaçaPalavras: descubra a palavra do dia em seis tentativas.">
+  <meta name="theme-color" content="#155e75">
+  <title>caçaPalavras — desafio diário</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body data-theme="cordel">
+  <a class="skip-link" href="#game">Pular para o jogo</a>
+  <noscript>Ative o JavaScript para jogar caçaPalavras.</noscript>
+  <nav class="prototype-switcher" aria-label="Direção visual">
+    <span class="switcher-label">caçaPalavras</span>
+    <button class="prototype-button" data-theme-choice="cordel" aria-pressed="true">Cordel Elétrico</button>
+    <button class="prototype-button" data-theme-choice="observatorio" aria-pressed="false">Observatório</button>
+    <button class="prototype-button" data-theme-choice="banca" aria-pressed="false">Banca de Sílabas</button>
+  </nav>
+
+  <main id="game">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">desafio diário</p>
+        <h1 id="page-title">caçaPalavras</h1>
+        <p>Uma palavra, seis tentativas e uma nova descoberta todo dia.</p>
+      </div>
+      <div class="theme-note" id="theme-note">Gráfica, brasileira e tátil.</div>
+    </section>
+
+    <div class="game-layout">
+      <section class="game-card" aria-labelledby="game-title">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow" id="challenge-label">desafio diário</p>
+            <h2 id="game-title">Qual é a palavra?</h2>
+            <p id="game-subtitle">Descubra em até 6 tentativas.</p>
+          </div>
+          <div class="header-actions">
+            <button class="icon-button" id="help-button" type="button" aria-label="Como jogar">?</button>
+            <button class="icon-button" id="contrast-button" type="button" aria-pressed="false" aria-label="Ativar alto contraste">◐</button>
+            <button class="icon-button" id="motion-button" type="button" aria-pressed="false" aria-label="Ativar movimento reduzido">◌</button>
+          </div>
+        </header>
+
+        <div class="board-wrap">
+          <div class="board" id="board" role="grid" aria-label="Tabuleiro com 6 tentativas de 5 letras"></div>
+        </div>
+        <p class="hint" id="hint" role="status" aria-live="polite">Escolha uma letra para começar.</p>
+        <div class="keyboard" id="keyboard" aria-label="Teclado virtual"></div>
+        <div class="bottom-actions">
+          <button class="action" id="share-button" type="button">Compartilhar resultado</button>
+          <button class="action secondary" id="practice-button" type="button">Jogar no modo livre</button>
+        </div>
+        <p class="status" id="status" aria-live="polite">Seus dados ficam apenas neste navegador.</p>
+      </section>
+
+      <aside class="side-card" aria-labelledby="stats-title">
+        <p class="eyebrow">seu ritmo</p>
+        <h2 id="stats-title">Estatísticas</h2>
+        <p>O modo livre não altera sua sequência diária.</p>
+        <div class="stats" id="stats"></div>
+        <h3>Distribuição</h3>
+        <div id="distribution" aria-label="Distribuição de vitórias por número de tentativas"></div>
+        <div class="legend" aria-label="Legenda das dicas">
+          <span><b class="is-correct"></b> letra certa, lugar certo</span>
+          <span><b class="is-present"></b> letra certa, outro lugar</span>
+          <span><b class="is-absent"></b> letra não encontrada</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <dialog id="help-dialog" aria-labelledby="help-title">
+    <div class="dialog-content">
+      <button class="dialog-close" id="close-help" type="button" aria-label="Fechar instruções">×</button>
+      <p class="eyebrow">como jogar</p>
+      <h2 id="help-title">Descubra a palavra</h2>
+      <ol>
+        <li>Digite uma palavra de 5 letras.</li>
+        <li>Verde indica letra certa no lugar certo.</li>
+        <li>Amarelo indica letra certa em outro lugar.</li>
+        <li>Cinza indica que a letra não aparece na resposta.</li>
+      </ol>
+      <p>Acentos não são obrigatórios. Você pode jogar pelo teclado físico ou pelo teclado na tela.</p>
+    </div>
+  </dialog>
+</body>
+</html>
